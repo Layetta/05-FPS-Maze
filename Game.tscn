@@ -1,11 +1,13 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Key/key.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Exit/Exit.gd" type="Script" id=3]
 [ext_resource path="res://UI/Menu.gd" type="Script" id=4]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Music.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Key_Sound.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Zombie.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Music_Maze.mp3" type="AudioStream" id=8]
 
 [sub_resource type="SphereShape" id=6]
 radius = 0.5
@@ -49,14 +51,14 @@ extents = Vector3( 0.5, 0.1, 0.5 )
 [node name="Maze" type="Spatial" parent="."]
 
 [node name="key" parent="Maze" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0, 24 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, 20 )
 
 [node name="Exit" type="Area" parent="Maze"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0, -24 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, -20 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Maze/Exit"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0355811, 12.4018 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036, 0 )
 shape = SubResource( 6 )
 
 [node name="Light" type="OmniLight" parent="Maze/Exit"]
@@ -177,17 +179,17 @@ margin_bottom = 144.0
 text = "Give Up?"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 8 )
 volume_db = -40.0
 autoplay = true
 
 [node name="Key" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -40.0
+volume_db = -20.0
 
 [node name="Zombie" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-volume_db = -40.0
+stream = ExtResource( 7 )
+volume_db = -20.0
 
 [connection signal="body_entered" from="Maze/Exit" to="Maze/Exit" method="_on_Exit_body_entered"]
 [connection signal="pressed" from="UI/Menu/Quit" to="UI/Menu" method="_on_Quit_pressed"]
