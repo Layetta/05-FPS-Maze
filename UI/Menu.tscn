@@ -8,7 +8,7 @@ script = ExtResource( 1 )
 [node name="Background" type="ColorRect" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
-color = Color( 0.266667, 0.266667, 0.266667, 1 )
+color = Color( 0.0666667, 0.4, 0.407843, 1 )
 
 [node name="Quit" type="Button" parent="."]
 margin_left = 467.0
@@ -17,4 +17,12 @@ margin_right = 567.0
 margin_bottom = 340.0
 text = "Quit"
 
+[node name="Continue" type="Button" parent="."]
+margin_left = 465.0
+margin_top = 227.0
+margin_right = 567.0
+margin_bottom = 275.0
+text = "Continue?"
+
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_Continue_pressed"]

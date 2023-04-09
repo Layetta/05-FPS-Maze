@@ -8,7 +8,7 @@ script = ExtResource( 1 )
 [node name="Background" type="ColorRect" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
-color = Color( 0.266667, 0.266667, 0.266667, 1 )
+color = Color( 0.454902, 0.12549, 0.12549, 1 )
 
 [node name="Label" type="Label" parent="."]
 margin_right = 1024.0

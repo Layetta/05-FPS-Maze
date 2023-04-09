@@ -31,4 +31,11 @@ mesh = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0934681, 0 )
 shape = SubResource( 2 )
 
+[node name="KeyLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+light_color = Color( 1, 0.960784, 0, 1 )
+light_energy = 10.725
+omni_range = 4.0
+omni_attenuation = 2.0
+
 [connection signal="body_entered" from="." to="." method="_on_key_body_entered"]
